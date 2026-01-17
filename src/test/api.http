@@ -1,0 +1,63 @@
+###
+GET http://localhost:3000/api/appointments
+
+###
+GET http://localhost:3000/api/appointments/2
+
+
+
+###
+// ทดสอบกรณีที่ appointments ไม่พบ 
+GET http://localhost:3000/api/appointments/3
+
+###
+// สร้าง appointments ใหม่ที่ถูกต้อง
+POST  http://localhost:3000/api/appointments
+Content-Type: application/json
+
+{
+    "AppointmentID": 3 ,   
+    "Date": "18/01/2568",
+    "Time": "13.00",
+    "Status": "นัด",
+    "Notes": "ตรวจสุขภาพประจำปี"
+
+}
+
+
+###
+// สร้าง appointments ใหม่ที่ไม่ถูกต้อง 
+POST  http://localhost:3000/api/appointments
+Content-Type: application/json
+
+{ 
+    "AppointmentID": 4,   
+    "Time": "13.00",
+    "Status": "นัด",
+    "Notes": "ตรวจสุขภาพประจำปี"
+
+}
+
+
+###
+// เเก้ไขข้อมูล appointments
+PUT   http://localhost:3000/api/appointments/3
+Content-Type: application/json
+
+{ 
+    "AppointmentID": 3 ,   
+    "Date": "18/01/2568",
+    "Time": "14.30 น.",
+    "Status": "นัด",
+    "Notes": "ตรวจสุขภาพประจำปี" 
+
+}
+
+
+###
+// ลบ appointments 
+DELETE  http://localhost:3000/api/appointments/2
+Content-Type: application/json
+
+
+
